@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="dashboard">
+  <div class="dashboard-intro">
+    <p class="tagline">Fluxo automático em poucos cliques</p>
+    <h2 class="section-title">Escolha o que deseja gerar</h2>
+    <p class="section-description">
+      Cole o bloco de dados do cliente nas páginas específicas e baixe os documentos já formatados para assinatura.
+    </p>
+  </div>
+
+  <div class="card-grid">
+    <article class="card">
+      <h3 class="card-title">Gerar DOCX</h3>
+      <p class="card-text">
+        Gere a procuração + contrato de empréstimo consignado em <strong>.docx</strong>, pronto para edição e assinatura.
+      </p>
+      <a href="{{ url_for('pagina_docx') }}" class="btn btn-primary">
+        Ir para página de DOCX
+      </a>
+    </article>
+
+    <article class="card">
+      <h3 class="card-title">Baixar PDF</h3>
+      <p class="card-text">
+        Gere o mesmo documento em <strong>.pdf</strong>, ideal para envio direto ao cliente ou assinatura digital.
+      </p>
+      <a href="{{ url_for('pagina_pdf') }}" class="btn btn-secondary">
+        Ir para página de PDF
+      </a>
+    </article>
+  </div>
+</section>
+{% endblock %}
