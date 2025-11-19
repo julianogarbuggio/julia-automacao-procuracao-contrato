@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="form-section">
+  <header class="form-header">
+    <h2 class="section-title">Gerar DOCX</h2>
+    <p class="section-description">
+      Cole abaixo o <strong>bloco único de dados</strong> do cliente no padrão do escritório
+      (Nome completo, Nacionalidade, Estado civil, RG, CPF, endereço, cidade, estado, WhatsApp, e-mail, etc.).
+    </p>
+  </header>
+
+  <form method="post" action="{{ url_for('gerar_docx') }}" class="form-card">
+    <label for="bloco_dados" class="form-label">Bloco de dados do cliente</label>
+    <textarea
+      id="bloco_dados"
+      name="bloco_dados"
+      class="form-textarea"
+      placeholder="Exemplo:
+Nome completo: Juliano Garbuggio
+Nacionalidade: Brasileiro
+Data de nascimento: 01/01/1980
+Estado civil: Casado
+Profissão: Advogado
+RG: 0000000 - ESTADO: PR
+CPF: 000.000.000-00
+ENDEREÇO COMPLETO: Rua..., nº..., complemento: ...
+Bairro: ...
+CEP: 00000-000
+CIDADE: Maringá, ESTADO: PR
+WhatsApp COM DDD: 44 99999-9999
+E-mail: juliano@email.com"
+    ></textarea>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Gerar DOCX</button>
+      <a href="{{ url_for('dashboard') }}" class="link-back">← Voltar ao painel</a>
+    </div>
+
+    <p class="hint">
+      O arquivo será baixado automaticamente com a nomenclatura:
+      <code>02_Procuracao_Kit_Consignado_Nome_Sobrenome_Autor.docx</code>
+    </p>
+  </form>
+</section>
+{% endblock %}
