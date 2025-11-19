@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="form-section">
+  <header class="form-header">
+    <h2 class="section-title">Baixar PDF</h2>
+    <p class="section-description">
+      Cole o mesmo <strong>bloco de dados do cliente</strong>. A Jul.IA vai gerar o documento e convertê-lo automaticamente para <strong>.pdf</strong>.
+    </p>
+  </header>
+
+  <form method="post" action="{{ url_for('gerar_pdf') }}" class="form-card">
+    <label for="bloco_dados" class="form-label">Bloco de dados do cliente</label>
+    <textarea
+      id="bloco_dados"
+      name="bloco_dados"
+      class="form-textarea"
+      placeholder="Cole aqui o bloco no padrão:
+Nome completo: ...
+Nacionalidade: ...
+(...)
+E-mail: ..."
+    ></textarea>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-secondary">Baixar PDF</button>
+      <a href="{{ url_for('dashboard') }}" class="link-back">← Voltar ao painel</a>
+    </div>
+
+    <p class="hint">
+      O arquivo será baixado automaticamente com a nomenclatura:
+      <code>02_Procuracao_Kit_Consignado_Nome_Sobrenome_Autor.pdf</code>
+    </p>
+  </form>
+</section>
+{% endblock %}
